@@ -1,26 +1,89 @@
 package codestats;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProjectTree {
+  private final String head;
+
   public ProjectTree(String rootDirName) {
+    head = rootDirName;
   }
 
-  // get all .c .cpp .java... files in directory
   public List<String> getValidFiles() {
-    // офк стереть эту заглушку
-    ArrayList<String> result = new ArrayList<String>();
-    result.add("src/main/resources/Root/code-example.cpp");
-    result.add("src/main/resources/Root/Subdir/another-example.java");
-    return result;
+    try {
+      return Files.walk(Paths.get(head))
+              .filter(p -> isValidFile(p.toString()))
+              .map(Path::toString)
+              .collect(Collectors.toList());
+    } catch (IOException e) {
+      System.out.println(e.toString());
+    }
+    return null;
   }
 
   public String getProjectTreeReport() {
-    // офк стереть эту заглушку
-    return "Root\n"
-         + "├── code-example.cpp\n"
-         + "└── Subdir\n"
-         + "    └── another-example.java\n";
+    int indent = 0;
+    File folder = new File(head);
+    StringBuilder sb = new StringBuilder();
+
+    sb.append(folder.getName());
+    sb.append("/\n");
+
+    getProjectTree(folder, indent, sb);
+
+    return sb.toString();
+  }
+
+  private static boolean isValidFile(String filename) {
+    return filename.matches(".*\\.(c$|cpp$|java$)");
+  }
+
+  private static void getProjectTree(File folder, int indent, StringBuilder sb) {
+    File[] files = folder.listFiles();
+
+    int counter = 0;
+
+    for (File file : files) {
+      if (file.isDirectory() || isValidFile(file.getName())) {
+        counter++;
+      }
+    }
+
+    int now = 0;
+
+    for (File file : files) {
+      if (file.isDirectory()) {
+        sb.append(getIndentString(indent));
+        sb.append("└── ");
+        sb.append(file.getName());
+        sb.append("/\n");
+        getProjectTree(file, indent + 1, sb);
+        now++;
+      } else if (isValidFile(file.getName())) {
+        sb.append(getIndentString(indent));
+        if (now + 1 == counter) {
+          sb.append("└── ");
+        } else {
+          sb.append("├── ");
+        }
+        sb.append(file.getName());
+        sb.append("\n");
+        now++;
+      }
+    }
+  }
+
+  private static String getIndentString(int indent) {
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < indent; i++) {
+      sb.append("    ");
+    }
+    return sb.toString();
   }
 }

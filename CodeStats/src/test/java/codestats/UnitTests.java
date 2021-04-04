@@ -35,9 +35,9 @@ public class UnitTests {
     ProjectTree tree = new ProjectTree("src/main/resources/Root");
     // мб имя файла неправильное, можно поменять
     String structure = tree.getProjectTreeReport();
-    assertEquals(structure, "Root\n"
+    assertEquals(structure, "Root/\n"
                                 + "├── code-example.cpp\n"
-                                + "└── Subdir\n"
+                                + "└── Subdir/\n"
                                 + "    └── another-example.java\n");
   }
 
