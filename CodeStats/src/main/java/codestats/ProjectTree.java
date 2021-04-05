@@ -18,7 +18,7 @@ public class ProjectTree {
   public List<String> getValidFiles() {
     try {
       return Files.walk(Paths.get(head))
-              .filter(p -> isValidFile(p.toString()))
+              .filter(p -> isValidFile(p.toFile()))
               .map(Path::toString)
               .collect(Collectors.toList());
     } catch (IOException e) {
@@ -40,8 +40,11 @@ public class ProjectTree {
     return sb.toString();
   }
 
-  private static boolean isValidFile(String filename) {
-    return filename.matches(".*\\.(c$|cpp$|java$)");
+  private static boolean isValidFile(File file) {
+    return file.exists() &&
+            file.isFile() &&
+            file.canRead() &&
+            file.toString().matches(".*\\.(java$|hpp$|h$|H$|h++$|c$|cpp$|cxx$|cc$|c++$)");
   }
 
   private static void getProjectTree(File folder, int indent, StringBuilder sb) {
@@ -50,7 +53,7 @@ public class ProjectTree {
     int counter = 0;
 
     for (File file : files) {
-      if (file.isDirectory() || isValidFile(file.getName())) {
+      if (file.isDirectory() || isValidFile(file)) {
         counter++;
       }
     }
@@ -65,7 +68,7 @@ public class ProjectTree {
         sb.append("/\n");
         getProjectTree(file, indent + 1, sb);
         now++;
-      } else if (isValidFile(file.getName())) {
+      } else if (isValidFile(file)) {
         sb.append(getIndentString(indent));
         if (now + 1 == counter) {
           sb.append("└── ");
