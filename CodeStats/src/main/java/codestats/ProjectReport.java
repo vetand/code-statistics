@@ -14,8 +14,7 @@ public class ProjectReport extends Report {
   public HashMap<String, Report> getFileReports() {
     return fileStats;
   }
-
-
+  
   public void sumFileReport(Report fileReport) {
     fileReport.getStats().entrySet().forEach(entry -> {
       if (stats_.containsKey(entry.getKey())) {
