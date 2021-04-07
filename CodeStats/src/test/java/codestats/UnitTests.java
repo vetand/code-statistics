@@ -21,11 +21,9 @@ public class UnitTests {
   @Test
   public void testProjectTreeFilesDIR() {
     ProjectTree tree = new ProjectTree("src/main/resources/Root");
-    // мб имя файла неправильное, можно поменять
     List<String> files = tree.getValidFiles();
     Iterator<String> iter = files.iterator();
     assertEquals(files.size(), 2);
-    // мб имя файла неправильное, можно поменять
     assertEquals(iter.next(), "src/main/resources/Root/code-example.cpp");
     assertEquals(iter.next(), "src/main/resources/Root/Subdir/another-example.java");
   }
@@ -33,7 +31,6 @@ public class UnitTests {
   @Test
   public void testProjectTreeStructure() {
     ProjectTree tree = new ProjectTree("src/main/resources/Root");
-    // мб имя файла неправильное, можно поменять
     String structure = tree.getProjectTreeReport();
     assertEquals(structure, "Root\n"
             + "├── code-example.cpp\n"
