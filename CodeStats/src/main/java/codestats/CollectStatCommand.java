@@ -37,7 +37,7 @@ class CollectStatCommand implements Callable<Integer> {
         Report statReport = stat.collect(name);
         fileReport.addStatReport(statReport);
       });
-      projectReport.addFileReport(fileReport);
+      projectReport.addFileReport(name, fileReport);
     });
     reporter.outputToConsole(projectReport, tree);
     return 0;
