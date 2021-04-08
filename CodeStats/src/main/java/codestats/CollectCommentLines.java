@@ -88,8 +88,8 @@ public class CollectCommentLines extends Statistics {
 
   // некорректно работает на строке: /*abc "*/"
   private void parseLineRuleBase(String line) {
-    // first remove strings ("") from line
-    String filteredLine = line.replaceAll("\"", "");  // for further string replacements
+    // first remove strings ("string \"example\"!") from line
+    String filteredLine = line.replaceAll("\\\\\"", ".");  // for further string replacements
     filteredLine = filteredLine.replaceAll("\"[^\"]*\"", "\"...\"");  // replacing strings with "..."
 
     // filter from previous scopes

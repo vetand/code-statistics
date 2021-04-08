@@ -62,4 +62,16 @@ public class UnitTests {
                               + "    Total empty comment lines: 1\n"
                               + "    Total filled comment lines: 2\n");
   }
+
+  @Test
+  public void testCollectConstants() {
+    CollectConstants statMaker = new CollectConstants();
+    Report report = statMaker.collect("src/main/resources/Root/code-example.cpp");
+    HashMap<String, String> result = report.getStats();
+    assertEquals(result.size(), 4);
+    assertEquals(result.get("Constant 100"), "4 occurrences");
+    assertEquals(result.get("Constant 200"), "2 occurrences");
+    assertEquals(result.get("Total number of constants"), "3");
+    assertEquals(result.get("Number of duplicated constants"), "2");
+  }
 }
