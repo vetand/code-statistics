@@ -1,11 +1,17 @@
 package codestats;
 
+import java.util.Map;
+
 public class TextLayout {
-  public String toString(Report report, ProjectTree tree) {
-    // офк стереть эту заглушку
-    return "code-example.cpp:\n"
-         + "    Total comment lines: 3\n"
-         + "    Total empty comment lines: 1\n"
-         + "    Total filled comment lines: 2\n";
+  public String PRtoString(ProjectReport report, ProjectTree tree) {
+    String res = tree.getProjectTreeReport() + "\n\n" + "\t\t\tREPORT\n\t\t\t‾‾‾‾‾‾‾‾‾\n";
+    for(Map.Entry<String, Report> file : report.getFileReports().entrySet()) {
+      res += (file.getKey() + ":\n");
+      for(Map.Entry<String, String> stat : file.getValue().getStats().entrySet()) {
+        res += ("\t" + stat.getKey() + ": " + stat.getValue() + "\n");
+      }
+      res += "\n";
+    }
+    return res;
   }
 }
