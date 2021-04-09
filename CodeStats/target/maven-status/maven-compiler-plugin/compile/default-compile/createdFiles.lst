@@ -1,13 +1,16 @@
-codestats\SimpleTextLayout.class
 codestats\CollectCommentLines.class
 codestats\ProjectTree.class
 codestats\Statistics.class
 codestats\CollectStatCommand.class
 codestats\ReportWriter.class
+codestats\ProjectReport.class
 codestats\Layout.class
+codestats\FileReport.class
 codestats\ModeLibrary.class
+codestats\CollectConstants.class
 codestats\Mode.class
 codestats\Report.class
+codestats\TextLayout.class
 META-INF\native-image\picocli-generated\org.example\CodeStats\proxy-config.json
 META-INF\native-image\picocli-generated\org.example\CodeStats\reflect-config.json
 codestats\SimpleReport.class

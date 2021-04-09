@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="CodeStats:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CodeStats_jar</output-path>
+    <root id="archive" name="CodeStats.jar">
+      <element id="module-output" name="CodeStats" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/info/picocli/picocli/4.6.1/picocli-4.6.1.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: info.picocli:picocli:4.6.1" />
+      <element id="library" level="project" name="Maven: org.apiguardian:apiguardian-api:1.1.0" />
+      <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-api:5.6.2" />
+      <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-commons:1.6.2" />
+      <element id="library" level="project" name="Maven: org.opentest4j:opentest4j:1.2.0" />
+    </root>
+  </artifact>
+</component>

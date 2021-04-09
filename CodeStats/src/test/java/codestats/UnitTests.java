@@ -61,21 +61,27 @@ public class UnitTests {
     PRreport.addFileReport("src/main/resources/Root/Subdir/another-example.java", report);
     report = statMaker.collect("src/main/resources/Root/code-example.cpp");
     PRreport.addFileReport("src/main/resources/Root/code-example.cpp", report);
-    String result = layout.PRtoString(PRreport, tree);
-    assertEquals(result, "Root\n" +
-            "├── code-example.cpp\n" +
-            "└── Subdir\n" +
-            "    └── another-example.java\n\n\n" +
-            "\t\t\tREPORT\n" +
-            "\t\t\t‾‾‾‾‾‾‾‾‾\n" +
-            "src/main/resources/Root/Subdir/another-example.java:\n" +
-            "\tTotal comment lines: 3\n" +
-            "\tTotal empty comment lines: 1\n" +
-            "\tTotal filled comment lines: 2\n\n" +
-            "src/main/resources/Root/code-example.cpp:\n" +
-            "\tTotal comment lines: 3\n" +
-            "\tTotal empty comment lines: 1\n" +
-            "\tTotal filled comment lines: 2\n\n");
+    String result = layout.toString(PRreport, tree);
+    assertEquals(result, "Root/\n"
+        + "├── code-example-with-scope-comments.cpp\n"
+        + "├── code-example.cpp\n"
+        + "└── Subdir/\n"
+        + "    └── another-example.java\n"
+        + "\n"
+        + "\n"
+        + "\t\t\tREPORT\n"
+        + "\t\t\t‾‾‾‾‾‾‾‾‾\n"
+        + "src/main/resources/Root/Subdir/another-example.java:\n"
+        + "\tTotal single-line comments: 2\n"
+        + "\tEmpty single-line comments: 0\n"
+        + "\tTotal multi-line comments: 0\n"
+        + "\tTotal lines with comments: 2\n"
+        + "\n"
+        + "src/main/resources/Root/code-example.cpp:\n"
+        + "\tTotal single-line comments: 3\n"
+        + "\tEmpty single-line comments: 1\n"
+        + "\tTotal multi-line comments: 0\n"
+        + "\tTotal lines with comments: 3\n\n");
   }
 
   @Test

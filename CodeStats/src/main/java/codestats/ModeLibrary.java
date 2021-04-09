@@ -16,6 +16,7 @@ public class ModeLibrary {
     // define base mode
     ArrayList<Statistics> baseList = new ArrayList<Statistics>();
     baseList.add(new CollectCommentLines());
+    baseList.add(new CollectConstants());
 
     addMode(new Mode("base", baseList));
     addMode(new Mode("full", fullList));

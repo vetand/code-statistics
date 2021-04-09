@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 /**
  * Считает дупликации констант в файле.
- * На данный момент поддержтваются целочисленные константы.
+ * На данный момент поддерживаются целочисленные константы.
  */
 public class CollectConstants extends Statistics {
   private Map<Integer, Integer> constantCounter = new HashMap<>();
@@ -53,7 +53,7 @@ public class CollectConstants extends Statistics {
 
   private void parseLine(String line) {
     String filteredLine = replaceStrings(line);
-    System.out.println(filteredLine);
+    // System.out.println(filteredLine);
 
     Matcher integerMatcher = integerPattern.matcher(filteredLine);
     while (integerMatcher.find()) {
