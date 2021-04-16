@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="codestats.UnitTests" time="0.028" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="codestats.UnitTests" time="0.037" tests="6" errors="0" skipped="0" failures="2">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Users\Андрей\.jdks\openjdk-15.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\A4F7~1\AppData\Local\Temp\surefire14199311445388341680\surefirebooter4582148297116487098.jar C:\Users\Андрей\AppData\Local\Temp\surefire14199311445388341680 2021-04-16T13-02-57_562-jvmRun1 surefire7142273756835966690tmp surefire_09826600897133557229tmp"/>
+    <property name="sun.java.command" value="C:\Users\A4F7~1\AppData\Local\Temp\surefire1074272329619795962\surefirebooter12666779439396530899.jar C:\Users\Андрей\AppData\Local\Temp\surefire1074272329619795962 2021-04-16T14-03-20_307-jvmRun1 surefire17465659822500569698tmp surefire_014557136930005441510tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Андрей\code-statistics\CodeStats\target\test-classes;C:\Users\Андрей\code-statistics\CodeStats\target\classes;C:\Users\Андрей\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.2\junit-jupiter-api-5.6.2.jar;C:\Users\Андрей\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Андрей\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Андрей\.m2\repository\org\junit\platform\junit-platform-commons\1.6.2\junit-platform-commons-1.6.2.jar;C:\Users\Андрей\.m2\repository\info\picocli\picocli\4.6.1\picocli-4.6.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\A4F7~1\AppData\Local\Temp\surefire14199311445388341680\surefirebooter4582148297116487098.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\A4F7~1\AppData\Local\Temp\surefire1074272329619795962\surefirebooter12666779439396530899.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15.0.2+7-27"/>
@@ -56,9 +56,92 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="codestats.UnitTests.testCollectCommentLines" classname="codestats.UnitTests" time="0.008"/>
+  <testcase name="codestats.UnitTests.testCollectCommentLines" classname="codestats.UnitTests" time="0.009"/>
   <testcase name="codestats.UnitTests.testProjectTreeStructure" classname="codestats.UnitTests" time="0.001"/>
-  <testcase name="codestats.UnitTests.testSimpleTextLayout" classname="codestats.UnitTests" time="0.004"/>
-  <testcase name="codestats.UnitTests.testCollectConstants" classname="codestats.UnitTests" time="0.007"/>
+  <testcase name="codestats.UnitTests.testSimpleTextLayoutSummaryOnly" classname="codestats.UnitTests" time="0.011">
+    <failure message="expected: &lt;Root/&#10;├── code-example-with-scope-comments.cpp&#10;├── code-example.cpp&#10;└── Subdir/&#10;    └── another-example.java&#10;&#10;&#10;			REPORT&#10;			‾‾‾‾‾‾‾‾‾&#10;src/main/resources/Root/Subdir/another-example.java:&#10;	Total single-line comments: 2&#10;	Empty single-line comments: 0&#10;	Total multi-line comments: 0&#10;	Total lines with comments: 2&#10;&#10;src/main/resources/Root/code-example.cpp:&#10;	Total single-line comments: 3&#10;	Empty single-line comments: 1&#10;	Total multi-line comments: 0&#10;	Total lines with comments: 3&#10;&#10;&gt; but was: &lt;Root/&#10;			WHOLE PROJECT:&#10;	Total single-line comments: 5&#10;	Empty single-line comments: 1&#10;	Total multi-line comments: 0&#10;	Total lines with comments: 5&#10;&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: 
+expected: <Root/
+├── code-example-with-scope-comments.cpp
+├── code-example.cpp
+└── Subdir/
+    └── another-example.java
+			REPORT
+			‾‾‾‾‾‾‾‾‾
+src/main/resources/Root/Subdir/another-example.java:
+	Total single-line comments: 2
+	Empty single-line comments: 0
+	Total multi-line comments: 0
+	Total lines with comments: 2
+src/main/resources/Root/code-example.cpp:
+	Total single-line comments: 3
+	Empty single-line comments: 1
+	Total multi-line comments: 0
+	Total lines with comments: 3
+> but was: <Root/
+			WHOLE PROJECT:
+	Total single-line comments: 5
+	Empty single-line comments: 1
+	Total multi-line comments: 0
+	Total lines with comments: 5
+>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
+	at codestats.UnitTests.testSimpleTextLayoutSummaryOnly(UnitTests.java:104)
+]]></failure>
+  </testcase>
+  <testcase name="codestats.UnitTests.testSimpleTextLayoutFull" classname="codestats.UnitTests" time="0.003">
+    <failure message="expected: &lt;Root/&#10;├── code-example-with-scope-comments.cpp&#10;├── code-example.cpp&#10;└── Subdir/&#10;    └── another-example.java&#10;&#10;&#10;			REPORT&#10;			‾‾‾‾‾‾‾‾‾&#10;src/main/resources/Root/Subdir/another-example.java:&#10;	Total single-line comments: 2&#10;	Empty single-line comments: 0&#10;	Total multi-line comments: 0&#10;	Total lines with comments: 2&#10;&#10;src/main/resources/Root/code-example.cpp:&#10;	Total single-line comments: 3&#10;	Empty single-line comments: 1&#10;	Total multi-line comments: 0&#10;	Total lines with comments: 3&#10;&#10;&gt; but was: &lt;Root/&#10;├── code-example-with-scope-comments.cpp&#10;├── code-example.cpp&#10;└── Subdir/&#10;    └── another-example.java&#10;&#10;			WHOLE PROJECT:&#10;	Total single-line comments: 5&#10;	Empty single-line comments: 1&#10;	Total multi-line comments: 0&#10;	Total lines with comments: 5&#10;&#10;			REPORT&#10;			‾‾‾‾‾‾‾‾‾&#10;src/main/resources/Root/Subdir/another-example.java:&#10;	Total single-line comments: 2&#10;	Empty single-line comments: 0&#10;	Total multi-line comments: 0&#10;	Total lines with comments: 2&#10;&#10;src/main/resources/Root/code-example.cpp:&#10;	Total single-line comments: 3&#10;	Empty single-line comments: 1&#10;	Total multi-line comments: 0&#10;	Total lines with comments: 3&#10;&#10;&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: 
+expected: <Root/
+├── code-example-with-scope-comments.cpp
+├── code-example.cpp
+└── Subdir/
+    └── another-example.java
+			REPORT
+			‾‾‾‾‾‾‾‾‾
+src/main/resources/Root/Subdir/another-example.java:
+	Total single-line comments: 2
+	Empty single-line comments: 0
+	Total multi-line comments: 0
+	Total lines with comments: 2
+src/main/resources/Root/code-example.cpp:
+	Total single-line comments: 3
+	Empty single-line comments: 1
+	Total multi-line comments: 0
+	Total lines with comments: 3
+> but was: <Root/
+├── code-example-with-scope-comments.cpp
+├── code-example.cpp
+└── Subdir/
+    └── another-example.java
+			WHOLE PROJECT:
+	Total single-line comments: 5
+	Empty single-line comments: 1
+	Total multi-line comments: 0
+	Total lines with comments: 5
+			REPORT
+			‾‾‾‾‾‾‾‾‾
+src/main/resources/Root/Subdir/another-example.java:
+	Total single-line comments: 2
+	Empty single-line comments: 0
+	Total multi-line comments: 0
+	Total lines with comments: 2
+src/main/resources/Root/code-example.cpp:
+	Total single-line comments: 3
+	Empty single-line comments: 1
+	Total multi-line comments: 0
+	Total lines with comments: 3
+>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
+	at codestats.UnitTests.testSimpleTextLayoutFull(UnitTests.java:66)
+]]></failure>
+  </testcase>
+  <testcase name="codestats.UnitTests.testCollectConstants" classname="codestats.UnitTests" time="0.005"/>
   <testcase name="codestats.UnitTests.testProjectTreeFilesDIR" classname="codestats.UnitTests" time="0.005"/>
 </testsuite>

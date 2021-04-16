@@ -2,8 +2,10 @@ package codestats;
 
 import java.util.Map;
 
-public class TextLayout {
-  public String toString(ProjectReport report, ProjectTree tree) {
+public class TextLayout implements Layout {
+  public String toString(ProjectReport report,
+                         ProjectTree tree,
+                         Mode mode) {
     String res = tree.getProjectTreeReport() + "\n\n" + "\t\t\tREPORT\n\t\t\t‾‾‾‾‾‾‾‾‾\n";
     for(Map.Entry<String, Report> file : report.getFileReports().entrySet()) {
       res += (file.getKey() + ":\n");

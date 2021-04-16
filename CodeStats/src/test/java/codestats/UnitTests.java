@@ -53,7 +53,7 @@ public class UnitTests {
   }
 
   @Test
-  public void testSimpleTextLayout() {
+  public void testSimpleTextLayoutFull() {
     ProjectReport PRreport = new ProjectReport();
     ProjectTree tree = new ProjectTree("src/main/resources/Root");
     TextLayout layout = new TextLayout();
@@ -62,13 +62,18 @@ public class UnitTests {
     PRreport.addFileReport("src/main/resources/Root/Subdir/another-example.java", report);
     report = statMaker.collect("src/main/resources/Root/code-example.cpp");
     PRreport.addFileReport("src/main/resources/Root/code-example.cpp", report);
-    String result = layout.toString(PRreport, tree);
+    String result = layout.toString(PRreport, tree, new ModeLibrary().getMode("full"));
     assertEquals(result, "Root/\n"
         + "├── code-example-with-scope-comments.cpp\n"
         + "├── code-example.cpp\n"
         + "└── Subdir/\n"
         + "    └── another-example.java\n"
         + "\n"
+        + "\t\t\tWHOLE PROJECT:\n"
+        + "\tTotal single-line comments: 5\n"
+        + "\tEmpty single-line comments: 1\n"
+        + "\tTotal multi-line comments: 0\n"
+        + "\tTotal lines with comments: 5\n"
         + "\n"
         + "\t\t\tREPORT\n"
         + "\t\t\t‾‾‾‾‾‾‾‾‾\n"
@@ -83,6 +88,26 @@ public class UnitTests {
         + "\tEmpty single-line comments: 1\n"
         + "\tTotal multi-line comments: 0\n"
         + "\tTotal lines with comments: 3\n\n");
+  }
+
+  @Test
+  public void testSimpleTextLayoutSummaryOnly() {
+    ProjectReport PRreport = new ProjectReport();
+    ProjectTree tree = new ProjectTree("src/main/resources/Root");
+    TextLayout layout = new TextLayout();
+    CollectCommentLines statMaker = new CollectCommentLines();
+    Report report = statMaker.collect("src/main/resources/Root/Subdir/another-example.java");
+    PRreport.addFileReport("src/main/resources/Root/Subdir/another-example.java", report);
+    report = statMaker.collect("src/main/resources/Root/code-example.cpp");
+    PRreport.addFileReport("src/main/resources/Root/code-example.cpp", report);
+    String result = layout.toString(PRreport, tree, new ModeLibrary().getMode("base"));
+    assertEquals(result, "Root/\n"
+        + "\t\t\tWHOLE PROJECT:\n"
+        + "\tTotal single-line comments: 5\n"
+        + "\tEmpty single-line comments: 1\n"
+        + "\tTotal multi-line comments: 0\n"
+        + "\tTotal lines with comments: 5\n"
+        );
   }
 
   @Test

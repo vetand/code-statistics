@@ -39,7 +39,7 @@ class CollectStatCommand implements Callable<Integer> {
       });
       projectReport.addFileReport(name, fileReport);
     });
-    reporter.outputToConsole(projectReport, tree);
+    reporter.outputToConsole(projectReport, tree, mode);
     return 0;
   }
 

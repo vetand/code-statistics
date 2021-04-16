@@ -10,25 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27ad2224-940c-4aae-b4e0-7a08d229acc8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/code-statistics.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/CodeStats_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/CodeStats_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/CodeStats_jar/CodeStats.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/CodeStats_jar/collect-stat_completion" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/codestats/CollectStatCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/codestats/CollectStatCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/codestats/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/codestats/Layout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/codestats/Mode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/codestats/Mode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/codestats/ModeLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/codestats/ModeLibrary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/codestats/ReportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/codestats/ReportWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/codestats/TextLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/codestats/TextLayout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/codestats/UnitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/codestats/UnitTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-unit-test.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-codestats.UnitTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-codestats.UnitTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/codestats.UnitTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/codestats.UnitTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/native-image/picocli-generated/org.example/CodeStats/proxy-config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/native-image/picocli-generated/org.example/CodeStats/reflect-config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/native-image/picocli-generated/org.example/CodeStats/resource-config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/codestats/CollectStatCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/codestats/CollectStatCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/codestats/Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/codestats/Mode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/codestats/ModeLibrary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/codestats/ModeLibrary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/codestats/ReportWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/codestats/ReportWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/codestats/TextLayout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/codestats/TextLayout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/codestats/UnitTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/codestats/UnitTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +138,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UnitTests.testProjectTree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UnitTests.testSimpleTextLayoutFull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CodeStats" />
       <extension name="coverage">
         <pattern>
@@ -150,13 +148,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="codestats" />
       <option name="MAIN_CLASS_NAME" value="codestats.UnitTests" />
-      <option name="METHOD_NAME" value="testProjectTree" />
+      <option name="METHOD_NAME" value="testSimpleTextLayoutFull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UnitTests.testSimpleTextLayout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UnitTests.testSimpleTextLayoutSummaryOnly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CodeStats" />
       <extension name="coverage">
         <pattern>
@@ -166,7 +164,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="codestats" />
       <option name="MAIN_CLASS_NAME" value="codestats.UnitTests" />
-      <option name="METHOD_NAME" value="testSimpleTextLayout" />
+      <option name="METHOD_NAME" value="testSimpleTextLayoutSummaryOnly" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -186,18 +184,18 @@
       <item itemvalue="Application.CollectStatCommand" />
       <item itemvalue="JAR Application.Unnamed" />
       <item itemvalue="JAR Application.CodeStats.jar" />
-      <item itemvalue="JUnit.UnitTests.testProjectTree" />
-      <item itemvalue="JUnit.UnitTests.testSimpleTextLayout" />
       <item itemvalue="JUnit.UnitTests" />
       <item itemvalue="JUnit.UnitTests (1)" />
+      <item itemvalue="JUnit.UnitTests.testSimpleTextLayoutFull" />
+      <item itemvalue="JUnit.UnitTests.testSimpleTextLayoutSummaryOnly" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UnitTests" />
+        <item itemvalue="JUnit.UnitTests.testSimpleTextLayoutSummaryOnly" />
+        <item itemvalue="JUnit.UnitTests.testSimpleTextLayoutFull" />
         <item itemvalue="JUnit.UnitTests (1)" />
         <item itemvalue="JAR Application.CodeStats.jar" />
-        <item itemvalue="JUnit.UnitTests.testSimpleTextLayout" />
-        <item itemvalue="JUnit.UnitTests.testProjectTree" />
       </list>
     </recent_temporary>
   </component>

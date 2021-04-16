@@ -18,8 +18,8 @@ public class ModeLibrary {
     baseList.add(new CollectCommentLines());
     baseList.add(new CollectConstants());
 
-    addMode(new Mode("base", baseList));
-    addMode(new Mode("full", fullList));
+    addMode(new Mode("base", baseList, false));
+    addMode(new Mode("full", fullList, true));
   }
 
   public void addMode(Mode mode) {

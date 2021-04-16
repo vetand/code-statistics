@@ -1,5 +1,5 @@
 package codestats;
 
 public interface Layout {
-  public String toString(Report report, ProjectTree tree);
+  public String toString(ProjectReport report, ProjectTree tree, Mode mode);
 }
