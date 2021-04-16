@@ -29,6 +29,7 @@ public class UnitTests {
     assertEquals(result.get("Empty single-line comments"), "0");
     assertEquals(result.get("Total multi-line comments"), "8");
   }
+
   @Test
   public void testProjectTreeFilesDIR() {
     ProjectTree tree = new ProjectTree("src/main/resources/Root");

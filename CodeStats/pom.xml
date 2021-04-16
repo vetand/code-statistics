@@ -34,7 +34,7 @@
   </dependencies>
 
   <build>
-    <finalName>maven-unit-test</finalName>
+    <finalName>codestats</finalName>
     <plugins>
 
       <plugin>
@@ -46,7 +46,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <!-- annotationProcessorPaths requires maven-compiler-plugin version 3.5 or higher -->
         <version>3.8.0</version>
         <configuration>
           <annotationProcessorPaths>
@@ -60,6 +59,35 @@
             <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
           </compilerArgs>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.1.1</version>
+
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>codestats.CollectStatCommand</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+
       </plugin>
 
     </plugins>

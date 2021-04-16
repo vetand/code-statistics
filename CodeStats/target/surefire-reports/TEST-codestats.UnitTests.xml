@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="codestats.UnitTests" time="0.02" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="codestats.UnitTests" time="0.028" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Users\Андрей\.jdks\openjdk-15.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\A4F7~1\AppData\Local\Temp\surefire15677449391459876795\surefirebooter12262692394375336539.jar C:\Users\Андрей\AppData\Local\Temp\surefire15677449391459876795 2021-04-09T11-36-12_787-jvmRun1 surefire16814444755371076812tmp surefire_02957410324829858545tmp"/>
+    <property name="sun.java.command" value="C:\Users\A4F7~1\AppData\Local\Temp\surefire14199311445388341680\surefirebooter4582148297116487098.jar C:\Users\Андрей\AppData\Local\Temp\surefire14199311445388341680 2021-04-16T13-02-57_562-jvmRun1 surefire7142273756835966690tmp surefire_09826600897133557229tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Андрей\code-statistics\CodeStats\target\test-classes;C:\Users\Андрей\code-statistics\CodeStats\target\classes;C:\Users\Андрей\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.2\junit-jupiter-api-5.6.2.jar;C:\Users\Андрей\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Андрей\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Андрей\.m2\repository\org\junit\platform\junit-platform-commons\1.6.2\junit-platform-commons-1.6.2.jar;C:\Users\Андрей\.m2\repository\info\picocli\picocli\4.6.1\picocli-4.6.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\A4F7~1\AppData\Local\Temp\surefire15677449391459876795\surefirebooter12262692394375336539.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\A4F7~1\AppData\Local\Temp\surefire14199311445388341680\surefirebooter4582148297116487098.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15.0.2+7-27"/>
@@ -56,9 +56,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="codestats.UnitTests.testCollectCommentLines" classname="codestats.UnitTests" time="0.002"/>
-  <testcase name="codestats.UnitTests.testProjectTreeFilesDIR" classname="codestats.UnitTests" time="0.003"/>
-  <testcase name="codestats.UnitTests.testProjectTreeStructure" classname="codestats.UnitTests" time="0.002"/>
-  <testcase name="codestats.UnitTests.testSimpleTextLayout" classname="codestats.UnitTests" time="0.003"/>
-  <testcase name="codestats.UnitTests.testCollectConstants" classname="codestats.UnitTests" time="0.006"/>
+  <testcase name="codestats.UnitTests.testCollectCommentLines" classname="codestats.UnitTests" time="0.008"/>
+  <testcase name="codestats.UnitTests.testProjectTreeStructure" classname="codestats.UnitTests" time="0.001"/>
+  <testcase name="codestats.UnitTests.testSimpleTextLayout" classname="codestats.UnitTests" time="0.004"/>
+  <testcase name="codestats.UnitTests.testCollectConstants" classname="codestats.UnitTests" time="0.007"/>
+  <testcase name="codestats.UnitTests.testProjectTreeFilesDIR" classname="codestats.UnitTests" time="0.005"/>
 </testsuite>
