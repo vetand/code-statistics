@@ -14,18 +14,6 @@ public class ProjectReport extends Report {
   public HashMap<String, Report> getFileReports() {
     return fileStats;
   }
-  
-  public void sumFileReport(Report fileReport) {
-    fileReport.getStats().entrySet().forEach(entry -> {
-      if (stats_.containsKey(entry.getKey())) {
-        stats_.put(entry.getKey(), Integer.toString(
-                Integer.parseInt(stats_.get(entry.getKey()))
-                        + Integer.parseInt(entry.getValue())));
-      } else { // values should be ints in string format!
-        stats_.put(entry.getKey(), entry.getValue());
-      }
-    });
-  }
 
   public void addFileReport(String fileName, Report fileReport) {
     if (fileStats.containsKey(fileName)) {
@@ -41,5 +29,15 @@ public class ProjectReport extends Report {
     } else {
       fileStats.put(fileName, fileReport);
     }
+
+    fileReport.getStats().entrySet().forEach(entry -> {
+      if (stats.containsKey(entry.getKey())) {
+        stats.put(entry.getKey(), Integer.toString(
+                Integer.parseInt(stats.get(entry.getKey()))
+                        + Integer.parseInt(entry.getValue())));
+      } else { // values should be ints in string format!
+        stats.put(entry.getKey(), entry.getValue());
+      }
+    });
   }
 }
