@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.SortedMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -67,27 +68,19 @@ public class UnitTests {
         + "├── code-example-with-scope-comments.cpp\n"
         + "├── code-example.cpp\n"
         + "└── Subdir/\n"
-        + "    └── another-example.java\n"
-        + "\n"
-        + "\t\t\tWHOLE PROJECT:\n"
-        + "\tTotal single-line comments: 5\n"
-        + "\tEmpty single-line comments: 1\n"
-        + "\tTotal multi-line comments: 0\n"
-        + "\tTotal lines with comments: 5\n"
-        + "\n"
-        + "\t\t\tREPORT\n"
-        + "\t\t\t‾‾‾‾‾‾‾‾‾\n"
-        + "src/main/resources/Root/Subdir/another-example.java:\n"
-        + "\tTotal single-line comments: 2\n"
-        + "\tEmpty single-line comments: 0\n"
-        + "\tTotal multi-line comments: 0\n"
-        + "\tTotal lines with comments: 2\n"
-        + "\n"
-        + "src/main/resources/Root/code-example.cpp:\n"
-        + "\tTotal single-line comments: 3\n"
-        + "\tEmpty single-line comments: 1\n"
-        + "\tTotal multi-line comments: 0\n"
-        + "\tTotal lines with comments: 3\n\n");
+        + "    └── another-example.java\n\n\n"
+        + "\t\t\tREPORT FOR EACH FILE:\n\n" +
+            "src/main/resources/Root/Subdir/another-example.java:\n" +
+            "\tEmpty single-line comments: 0\n" +
+            "\tTotal multi-line comments: 0\n" +
+            "\tTotal single-line comments: 2\n" +
+            "\tTotal lines with comments: 2\n" +
+            "\n" +
+            "src/main/resources/Root/code-example.cpp:\n" +
+            "\tTotal multi-line comments: 0\n" +
+            "\tEmpty single-line comments: 1\n" +
+            "\tTotal single-line comments: 3\n" +
+            "\tTotal lines with comments: 3\n\n");
   }
 
   @Test
@@ -101,13 +94,11 @@ public class UnitTests {
     report = statMaker.collect("src/main/resources/Root/code-example.cpp");
     PRreport.addFileReport("src/main/resources/Root/code-example.cpp", report);
     String result = layout.toString(PRreport, tree, new ModeLibrary().getMode("base"));
-    assertEquals(result, "Root/\n"
-        + "\t\t\tWHOLE PROJECT:\n"
-        + "\tTotal single-line comments: 5\n"
-        + "\tEmpty single-line comments: 1\n"
-        + "\tTotal multi-line comments: 0\n"
-        + "\tTotal lines with comments: 5\n"
-        );
+    assertEquals(result,"\t\t\tWHOLE PROJECT REPORT:\n\n"
+        + "Total multi-line comments: 0\n" +
+            "Empty single-line comments: 1\n" +
+            "Total single-line comments: 5\n" +
+            "Total lines with comments: 5\n");
   }
 
   @Test
