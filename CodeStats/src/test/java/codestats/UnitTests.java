@@ -3,6 +3,7 @@ package codestats;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,22 +33,22 @@ public class UnitTests {
 
   @Test
   public void testProjectTreeFilesDIR() {
-    ProjectTree tree = new ProjectTree("src/main/resources/Root");
+    ProjectTree tree = new ProjectTree("src/main/resources/Root", true);
     List<String> files = tree.getValidFiles();
     Iterator<String> iter = files.iterator();
     assertEquals(files.size(), 3);
-    assertEquals(iter.next(), new File("src/main/resources/Root/code-example-with-scope-comments.cpp").getPath());
     assertEquals(iter.next(), new File("src/main/resources/Root/code-example.cpp").getPath());
+    assertEquals(iter.next(), new File("src/main/resources/Root/code-example-with-scope-comments.cpp").getPath());
     assertEquals(iter.next(), new File("src/main/resources/Root/Subdir/another-example.java").getPath());
   }
 
   @Test
   public void testProjectTreeStructure() {
-    ProjectTree tree = new ProjectTree("src/main/resources/Root");
+    ProjectTree tree = new ProjectTree("src/main/resources/Root", true);
     String structure = tree.getProjectTreeReport();
     assertEquals(structure, "Root/\n"
-                                + "├── code-example-with-scope-comments.cpp\n"
                                 + "├── code-example.cpp\n"
+                                + "├── code-example-with-scope-comments.cpp\n"
                                 + "└── Subdir/\n"
                                 + "    └── another-example.java\n");
   }
@@ -55,7 +56,7 @@ public class UnitTests {
   @Test
   public void testSimpleTextLayoutFull() {
     ProjectReport PRreport = new ProjectReport();
-    ProjectTree tree = new ProjectTree("src/main/resources/Root");
+    ProjectTree tree = new ProjectTree("src/main/resources/Root", true);
     TextLayout layout = new TextLayout();
     CollectCommentLines statMaker = new CollectCommentLines();
     Report report = statMaker.collect("src/main/resources/Root/Subdir/another-example.java");
@@ -64,36 +65,36 @@ public class UnitTests {
     PRreport.addFileReport("src/main/resources/Root/code-example.cpp", report);
     String result = layout.toString(PRreport, tree, new ModeLibrary().getMode("full"));
     assertEquals(result, "Root/\n"
-        + "├── code-example-with-scope-comments.cpp\n"
-        + "├── code-example.cpp\n"
-        + "└── Subdir/\n"
-        + "    └── another-example.java\n"
-        + "\n"
-        + "\t\t\tWHOLE PROJECT:\n"
-        + "\tTotal single-line comments: 5\n"
-        + "\tEmpty single-line comments: 1\n"
-        + "\tTotal multi-line comments: 0\n"
-        + "\tTotal lines with comments: 5\n"
-        + "\n"
-        + "\t\t\tREPORT\n"
-        + "\t\t\t‾‾‾‾‾‾‾‾‾\n"
-        + "src/main/resources/Root/Subdir/another-example.java:\n"
-        + "\tTotal single-line comments: 2\n"
-        + "\tEmpty single-line comments: 0\n"
-        + "\tTotal multi-line comments: 0\n"
-        + "\tTotal lines with comments: 2\n"
-        + "\n"
-        + "src/main/resources/Root/code-example.cpp:\n"
-        + "\tTotal single-line comments: 3\n"
-        + "\tEmpty single-line comments: 1\n"
-        + "\tTotal multi-line comments: 0\n"
-        + "\tTotal lines with comments: 3\n\n");
+            + "├── code-example.cpp\n"
+            + "├── code-example-with-scope-comments.cpp\n"
+            + "└── Subdir/\n"
+            + "    └── another-example.java\n"
+            + "\n"
+            + "\t\t\tWHOLE PROJECT:\n"
+            + "\tTotal single-line comments: 5\n"
+            + "\tEmpty single-line comments: 1\n"
+            + "\tTotal multi-line comments: 0\n"
+            + "\tTotal lines with comments: 5\n"
+            + "\n"
+            + "\t\t\tREPORT\n"
+            + "\t\t\t‾‾‾‾‾‾‾‾‾\n"
+            + "src/main/resources/Root/Subdir/another-example.java:\n"
+            + "\tTotal single-line comments: 2\n"
+            + "\tEmpty single-line comments: 0\n"
+            + "\tTotal multi-line comments: 0\n"
+            + "\tTotal lines with comments: 2\n"
+            + "\n"
+            + "src/main/resources/Root/code-example.cpp:\n"
+            + "\tTotal single-line comments: 3\n"
+            + "\tEmpty single-line comments: 1\n"
+            + "\tTotal multi-line comments: 0\n"
+            + "\tTotal lines with comments: 3\n\n");
   }
 
   @Test
   public void testSimpleTextLayoutSummaryOnly() {
     ProjectReport PRreport = new ProjectReport();
-    ProjectTree tree = new ProjectTree("src/main/resources/Root");
+    ProjectTree tree = new ProjectTree("src/main/resources/Root", true);
     TextLayout layout = new TextLayout();
     CollectCommentLines statMaker = new CollectCommentLines();
     Report report = statMaker.collect("src/main/resources/Root/Subdir/another-example.java");
