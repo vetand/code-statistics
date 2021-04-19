@@ -28,7 +28,7 @@ class CollectStatCommand implements Callable<Integer> {
   @Override
   public Integer call() throws Exception {
     Mode mode = library.getMode(modeName);
-    ProjectTree tree = new ProjectTree(rootDirPath);
+    ProjectTree tree = new ProjectTree(rootDirPath, true);
     List<String> fileNames = tree.getValidFiles();
     ProjectReport projectReport = new ProjectReport();
     fileNames.forEach(name -> {
