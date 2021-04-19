@@ -8,7 +8,7 @@ public class FileReport extends Report {
 
   public void addStatReport(Report statReport) {
     statReport.getStats().entrySet().forEach(entry -> {
-      stats_.put(entry.getKey(), entry.getValue());
+      stats.put(entry.getKey(), entry.getValue());
     });
   }
 }

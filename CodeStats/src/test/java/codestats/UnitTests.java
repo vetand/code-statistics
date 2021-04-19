@@ -66,8 +66,8 @@ public class UnitTests {
     PRreport.addFileReport("src/main/resources/Root/code-example.cpp", report);
     String result = layout.toString(PRreport, tree, new ModeLibrary().getMode("full"));
     assertEquals(result, "Root/\n"
-        + "├── code-example-with-scope-comments.cpp\n"
         + "├── code-example.cpp\n"
+        + "├── code-example-with-scope-comments.cpp\n"
         + "└── Subdir/\n"
         + "    └── another-example.java\n\n\n"
         + "\t\t\tREPORT FOR EACH FILE:\n\n"
