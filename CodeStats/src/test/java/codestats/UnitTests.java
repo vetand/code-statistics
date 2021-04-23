@@ -113,4 +113,15 @@ public class UnitTests {
     assertEquals(result.get("Total number of constants"), "3");
     assertEquals(result.get("Number of duplicated constants"), "2");
   }
+
+  @Test
+  public void testCollectPrimitives() {
+    CollectPrimitives statMaker = new CollectPrimitives();
+    Report report = statMaker.collect("src/main/resources/Root/code-example.cpp");
+    HashMap<String, String> result = report.getStats();
+    assertEquals(result.size(), 3);
+    assertEquals(result.get("Declarations of booleans"), "2");
+    assertEquals(result.get("Declarations of integers"), "6");
+    assertEquals(result.get("Declarations of floats"), "4");
+  }
 }
