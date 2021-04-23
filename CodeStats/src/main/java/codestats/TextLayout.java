@@ -5,13 +5,14 @@ import java.util.Map;
 public class TextLayout implements Layout {
   public String toString(ProjectReport report,
                          ProjectTree tree,
-                         Mode mode) {
+                         Mode mode,
+                         boolean showTree) {
     String res = "";
     if (report.size() == 0) {
       res += "Project is empty.\n";
       return res;
     }
-    if (mode.showTree()) {
+    if (showTree) {
       res += tree.getProjectTreeReport() + "\n\n";
     }
 

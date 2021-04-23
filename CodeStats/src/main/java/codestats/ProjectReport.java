@@ -1,17 +1,18 @@
 package codestats;
 
-import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class ProjectReport extends Report {
 
-  private HashMap<String, Report> fileStats;
+  private Map<String, Report> fileStats;
 
   public ProjectReport() {
     super();
-    fileStats = new HashMap<String, Report>();
+    fileStats = new TreeMap<String, Report>();
   }
 
-  public HashMap<String, Report> getFileReports() {
+  public Map<String, Report> getFileReports() {
     return fileStats;
   }
 

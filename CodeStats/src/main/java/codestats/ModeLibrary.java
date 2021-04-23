@@ -12,11 +12,14 @@ public class ModeLibrary {
     // define full mode
     ArrayList<Statistics> fullList = new ArrayList<Statistics>();
     fullList.add(new CollectCommentLines());
+    fullList.add(new CollectConstants());
+    fullList.add(new CollectPrimitives());
 
     // define base mode
     ArrayList<Statistics> baseList = new ArrayList<Statistics>();
     baseList.add(new CollectCommentLines());
     baseList.add(new CollectConstants());
+    baseList.add(new CollectPrimitives());
 
     addMode(new Mode("base", baseList, false));
     addMode(new Mode("full", fullList, true));

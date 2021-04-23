@@ -5,10 +5,6 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import java.io.File;
-import java.math.BigInteger;
-import java.nio.file.Files;
-import java.security.MessageDigest;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -21,6 +17,9 @@ class CollectStatCommand implements Callable<Integer> {
 
   @Option(names = {"-m", "--mode"}, description = "--full --base")
   private String modeName = "full";
+
+  @Option(names = {"-t", "--tree"}, description = "false or true")
+  private String treeMode = "false";
 
   static ModeLibrary library = new ModeLibrary();
   static ReportWriter reporter = new ReportWriter();
@@ -39,7 +38,7 @@ class CollectStatCommand implements Callable<Integer> {
       });
       projectReport.addFileReport(name, fileReport);
     });
-    reporter.outputToConsole(projectReport, tree, mode);
+    reporter.outputToConsole(projectReport, tree, mode, (treeMode.equals("true")));
     return 0;
   }
 

@@ -43,7 +43,7 @@ public class CollectConstants extends Statistics {
       if (count <= 1) {
         continue;
       }
-      result.addStat("Constant " + key, count + " occurrences");
+      result.addStat("Constant " + key + " occurrences", count + "");
     }
 
     result.addStat("Total number of constants", String.valueOf(constantCounter.size()));
