@@ -1,7 +1,7 @@
 package codestats;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.HashMap;
@@ -15,19 +15,19 @@ public class UnitTests {
     // мб имя файла неправильное, можно поменять
     Report report = statMaker.collect("src/main/resources/Root/code-example.cpp");
     HashMap<String, String> result = report.getStats();
-    Assert.assertEquals(result.size(), 4);
-    Assert.assertEquals(result.get("Total lines with comments"), "3");
-    Assert.assertEquals(result.get("Total single-line comments"), "3");
-    Assert.assertEquals(result.get("Empty single-line comments"), "1");
-    Assert.assertEquals(result.get("Total multi-line comments"), "0");
+    assertEquals(result.size(), 4);
+    assertEquals(result.get("Total lines with comments"), "3");
+    assertEquals(result.get("Total single-line comments"), "3");
+    assertEquals(result.get("Empty single-line comments"), "1");
+    assertEquals(result.get("Total multi-line comments"), "0");
 
     report = statMaker.collect("src/main/resources/Root/code-example-with-scope-comments.cpp");
     result = report.getStats();
-    Assert.assertEquals(result.size(), 4);
-    Assert.assertEquals(result.get("Total lines with comments"), "16");
-    Assert.assertEquals(result.get("Total single-line comments"), "5");
-    Assert.assertEquals(result.get("Empty single-line comments"), "0");
-    Assert.assertEquals(result.get("Total multi-line comments"), "8");
+    assertEquals(result.size(), 4);
+    assertEquals(result.get("Total lines with comments"), "16");
+    assertEquals(result.get("Total single-line comments"), "5");
+    assertEquals(result.get("Empty single-line comments"), "0");
+    assertEquals(result.get("Total multi-line comments"), "8");
   }
 
   @Test
@@ -35,17 +35,17 @@ public class UnitTests {
     ProjectTree tree = new ProjectTree("src/main/resources/Root", true);
     List<String> files = tree.getValidFiles();
     Iterator<String> iter = files.iterator();
-    Assert.assertEquals(files.size(), 3);
-    Assert.assertEquals(iter.next(), new File("src/main/resources/Root/code-example.cpp").getPath());
-    Assert.assertEquals(iter.next(), new File("src/main/resources/Root/code-example-with-scope-comments.cpp").getPath());
-    Assert.assertEquals(iter.next(), new File("src/main/resources/Root/Subdir/another-example.java").getPath());
+    assertEquals(files.size(), 3);
+    assertEquals(iter.next(), new File("src/main/resources/Root/code-example.cpp").getPath());
+    assertEquals(iter.next(), new File("src/main/resources/Root/code-example-with-scope-comments.cpp").getPath());
+    assertEquals(iter.next(), new File("src/main/resources/Root/Subdir/another-example.java").getPath());
   }
 
   @Test
   public void testProjectTreeStructure() {
     ProjectTree tree = new ProjectTree("src/main/resources/Root", true);
     String structure = tree.getProjectTreeReport();
-    Assert.assertEquals(structure, "Root/\n"
+    assertEquals(structure, "Root/\n"
                                 + "├── code-example.cpp\n"
                                 + "├── code-example-with-scope-comments.cpp\n"
                                 + "└── Subdir/\n"
@@ -63,7 +63,7 @@ public class UnitTests {
     report = statMaker.collect("src/main/resources/Root/code-example.cpp");
     PRreport.addFileReport("src/main/resources/Root/code-example.cpp", report);
     String result = layout.toString(PRreport, tree, new ModeLibrary().getMode("full"), true);
-    Assert.assertEquals(result, "Root/\n"
+    assertEquals(result, "Root/\n"
         + "├── code-example.cpp\n"
         + "├── code-example-with-scope-comments.cpp\n"
         + "└── Subdir/\n"
@@ -93,7 +93,7 @@ public class UnitTests {
     report = statMaker.collect("src/main/resources/Root/code-example.cpp");
     PRreport.addFileReport("src/main/resources/Root/code-example.cpp", report);
     String result = layout.toString(PRreport, tree, new ModeLibrary().getMode("base"), false);
-    Assert.assertEquals(result,"\t\t\tWHOLE PROJECT REPORT:\n\n"
+    assertEquals(result,"\t\t\tWHOLE PROJECT REPORT:\n\n"
         + "Total multi-line comments: 0\n" +
             "Empty single-line comments: 1\n" +
             "Total single-line comments: 5\n" +
@@ -105,11 +105,11 @@ public class UnitTests {
     CollectConstants statMaker = new CollectConstants();
     Report report = statMaker.collect("src/main/resources/Root/code-example.cpp");
     HashMap<String, String> result = report.getStats();
-    Assert.assertEquals(result.size(), 4);
-    Assert.assertEquals(result.get("Constant 100 occurrences"), "4");
-    Assert.assertEquals(result.get("Constant 200 occurrences"), "2");
-    Assert.assertEquals(result.get("Total number of constants"), "3");
-    Assert.assertEquals(result.get("Number of duplicated constants"), "2");
+    assertEquals(result.size(), 4);
+    assertEquals(result.get("Constant 100 occurrences"), "4");
+    assertEquals(result.get("Constant 200 occurrences"), "2");
+    assertEquals(result.get("Total number of constants"), "3");
+    assertEquals(result.get("Number of duplicated constants"), "2");
   }
 
   @Test
@@ -117,9 +117,9 @@ public class UnitTests {
     CollectPrimitives statMaker = new CollectPrimitives();
     Report report = statMaker.collect("src/main/resources/Root/code-example.cpp");
     HashMap<String, String> result = report.getStats();
-    Assert.assertEquals(result.size(), 3);
-    Assert.assertEquals(result.get("Declarations of booleans"), "2");
-    Assert.assertEquals(result.get("Declarations of integers"), "6");
-    Assert.assertEquals(result.get("Declarations of floats"), "4");
+    assertEquals(result.size(), 3);
+    assertEquals(result.get("Declarations of booleans"), "2");
+    assertEquals(result.get("Declarations of integers"), "6");
+    assertEquals(result.get("Declarations of floats"), "4");
   }
 }
