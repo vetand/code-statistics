@@ -27,7 +27,7 @@ public class UnitTests {
     assertEquals(result.get("Total lines with comments"), "16");
     assertEquals(result.get("Total single-line comments"), "5");
     assertEquals(result.get("Empty single-line comments"), "0");
-    assertEquals(result.get("Total multi-line comments"), "8");
+    assertEquals(result.get("Total multi-line comments"), "1");
   }
 
   @Test
