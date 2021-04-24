@@ -10,3 +10,9 @@
 8) Прогнать все юнит-тесты (должны работать)
 9) Панель в левом углу > src > main > java > codestats > CollectStatCommand > main
 10) Прогнать main, функция отработает успешно, но неправильно
+
+
+### Как запустить в докере
+
+1) ```docker build -t codestats .```
+2) ```docker run -v <absolute path to your project>:/project codestats:latest <params> /project```
