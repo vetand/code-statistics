@@ -15,7 +15,7 @@ public abstract class Report {
   static private SortedSet<Map.Entry<String,String>> SortByValues(Map<String,String> map) {
     SortedSet<Map.Entry<String,String>> sorted = new TreeSet<>(
             (s1, s2) -> {
-              int res = s1.getValue().compareTo(s2.getValue());
+              int res = Integer.parseInt(s1.getValue()) - (Integer.parseInt(s2.getValue()));
               if (s1.getKey().equals(s2.getKey())) {
                 return res;
               } else {
