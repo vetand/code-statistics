@@ -21,6 +21,9 @@ class CollectStatCommand implements Callable<Integer> {
   @Option(names = {"-t", "--tree"}, description = "false or true")
   private String treeMode = "false";
 
+  @Option(names = {"-x", "--xml"}, description = "show XML report in report.xml")
+  private String xmlReport = "false";
+
   static ModeLibrary library = new ModeLibrary();
   static ReportWriter reporter = new ReportWriter();
 
@@ -38,6 +41,8 @@ class CollectStatCommand implements Callable<Integer> {
       });
       projectReport.addFileReport(name, fileReport);
     });
+    XMLReportWriter XMLReporter = new XMLReportWriter();
+    XMLReporter.writeReport(projectReport, tree, mode, (xmlReport.equals("true")));
     reporter.outputToConsole(projectReport, tree, mode, (treeMode.equals("true")));
     return 0;
   }
