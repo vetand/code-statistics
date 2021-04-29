@@ -73,13 +73,12 @@ public class UnitTests {
         + "\tEmpty single-line comments: 0\n"
         + "\tTotal multi-line comments: 0\n"
         + "\tTotal single-line comments: 2\n"
-        + "\tTotal lines with comments: 2\n"
-        + "\n"
+        + "\tTotal lines with comments: 2\n\n\n"
         + "src/main/resources/Root/code-example.cpp:\n"
         + "\tTotal multi-line comments: 0\n"
         + "\tEmpty single-line comments: 1\n"
         + "\tTotal single-line comments: 3\n"
-        + "\tTotal lines with comments: 3\n\n");
+        + "\tTotal lines with comments: 3\n\n\n");
   }
 
   @Test
@@ -97,7 +96,7 @@ public class UnitTests {
         + "Total multi-line comments: 0\n" +
             "Empty single-line comments: 1\n" +
             "Total single-line comments: 5\n" +
-            "Total lines with comments: 5\n");
+            "Total lines with comments: 5\n\n");
   }
 
   @Test
