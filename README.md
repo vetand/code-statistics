@@ -1,19 +1,18 @@
-# code-statistics
-Статистика по исходному коду на C-like языках программирования
+### Как запустить проект
 
-`.jar` файл можно найти здесь: `CodeStats/out/artifacts/CodeStats_jar/CodeStats.jar`
+1) Открываем IntelliJ IDEA
+2) File > New > Project from Existing Sources
+3) Выбираем эту папку
+4) Открываем проект
+5) Панель в правом углу > Maven > CodeStats > Lifecycle
+6) Выполнить первые 4 действия (clean, validate, complile, test)
+7) Панель в левом углу > src > main > java > test > java > codestats > UnitTest
+8) Прогнать все юнит-тесты (должны работать)
+9) Панель в левом углу > src > main > java > codestats > CollectStatCommand > main
+10) Прогнать main, функция отработает успешно, но неправильно
 
-Запуск:
 
-`java -cp "CodeStats.jar;picocli-4.6.1.jar" codestats.CollectStatCommand <directory name> --mode="base"`
+### Как запустить в докере
 
-На текущий момент считается следующая статистика:
-
-- Однострочные комментарии - пустые, непустые
-- Многострочные комментарии
-- Общее число закомментированных строк
-
-- Число констант каждого значения
-- Число повторяющихся констант
-
-- Выводится полное дерево проекта
+1) ```docker build -t codestats .```
+2) ```docker run -v <absolute path to your project>:/project codestats:latest <params> /project```
