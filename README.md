@@ -1,18 +1,26 @@
-### Как запустить проект
+### Code-statistics
 
-1) Открываем IntelliJ IDEA
-2) File > New > Project from Existing Sources
-3) Выбираем эту папку
-4) Открываем проект
-5) Панель в правом углу > Maven > CodeStats > Lifecycle
-6) Выполнить первые 4 действия (clean, validate, complile, test)
-7) Панель в левом углу > src > main > java > test > java > codestats > UnitTest
-8) Прогнать все юнит-тесты (должны работать)
-9) Панель в левом углу > src > main > java > codestats > CollectStatCommand > main
-10) Прогнать main, функция отработает успешно, но неправильно
+Консольная утилита, позволяющая находить разнообразную статистику по коду C-like языков программирования.
 
+На текущий момент это:
+- Количество комментариев (однострочные, пустые, многострочные и т.д.)
+- Количество констант (например, число констант`3`)
+- Количество объявлений наиболее популярных типов (например, количество `int` переменных)
+- Презентация дерева проекта
+- Статистика по всему проекту в целом, а также по каждому файлу в отдельности
+- Генерация XML отчёта
 
-### Как запустить в докере
+`.jar` файл находится в папке `target/codestats.jar`
 
-1) ```docker build -t codestats .```
-2) ```docker run -v <absolute path to your project>:/project codestats:latest <params> /project```
+Запуск:
+`java -jar codestats.jar <PROJECT_DIR> --mode=base --tree=true --xml=true`
+
+Где `--mode=base` - показать отчёт по всему проекту в целом (`--mode=full` по каждому файлу в отдельности)
+
+`--tree=true` - показать дерево проекта
+
+`--xml=true` сгенерировать XML отчёт с той же статистикой
+
+Запуск через docker:
+
+`docker run -v <absolute path to your project>:/project vetand2013/codestats:latest <params> /project`
