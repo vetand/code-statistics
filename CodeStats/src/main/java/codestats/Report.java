@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public abstract class Report {
+public class Report {
   HashMap<String, String> stats;
 
   public Report() {

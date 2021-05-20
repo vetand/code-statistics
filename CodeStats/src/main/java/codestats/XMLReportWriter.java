@@ -11,6 +11,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.util.HashMap;
+import java.util.Map;
 
 public class XMLReportWriter {
     public void writeReport(ProjectReport report,
@@ -25,14 +26,27 @@ public class XMLReportWriter {
             Element rootElement = doc.createElement("root");
             doc.appendChild(rootElement);
 
-            HashMap<String, String> stats = report.getStats();
+            if (mode.getTag().equals("base")) {
+                HashMap<String, String> stats = report.getStats();
 
-            stats.forEach((key, value) -> {
-                Element stat = doc.createElement(key.replace(' ', '_'));
-                rootElement.appendChild(stat);
-                stat.appendChild(doc.createTextNode(value));
-            });
-
+                stats.forEach((key, value) -> {
+                    Element stat = doc.createElement(key.replace(' ', '_'));
+                    rootElement.appendChild(stat);
+                    stat.appendChild(doc.createTextNode(value));
+                });
+            } else if (mode.getTag().equals("full")) {
+                Map<String, Report> reports = report.getFileReports();
+                reports.forEach((fileName, stats) -> {
+                    Element fileTag = doc.createElement("FILE");
+                    rootElement.appendChild(fileTag);
+                    fileTag.setAttribute("path", fileName);
+                    stats.getStats().forEach((key, value) -> {
+                        Element stat = doc.createElement(key.replace(' ', '_'));
+                        fileTag.appendChild(stat);
+                        stat.appendChild(doc.createTextNode(value));
+                    });
+                });
+            }
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
